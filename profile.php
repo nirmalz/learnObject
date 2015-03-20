@@ -1,4 +1,4 @@
-<?php
+  mfjg<?php
 require_once 'core/init.php';
 
 if(!$username = Input::get('user')){

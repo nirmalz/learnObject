@@ -2,8 +2,8 @@
 require_once 'core/init.php';
 
 if(Input::exists()){
-    if(Token::check(Input::get('token'))) {
-
+    //if(Token::check(Input::get('token'))) {
+    if(true){
         $validate = new Validation();
         $validation = $validate->check($_POST, array(
             'username' => array(
@@ -22,7 +22,7 @@ if(Input::exists()){
             ),
             'name' => array(
                 'required' => true,
-                'min' => 2,
+                'min' => 3,
                 'max' => 50
             )
         ));
@@ -74,7 +74,7 @@ if(Input::exists()){
         <input type="text" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>" autocomplete="off"/>
     </div>
 
-    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"/>
+    <input type="text" name="token" value="<?php echo Token::generate(); ?>"/>
 
     <input type="submit" value="Register"/>
 </form>

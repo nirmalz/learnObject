@@ -42,3 +42,4 @@ if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Confi
         $user->login();
     }
 }
+

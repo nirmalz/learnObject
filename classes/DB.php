@@ -8,7 +8,7 @@ class DB {
                 $_results,
                 $_count = 0;
 
-    private function __construct(){
+    public function __construct(){
         try{
             // PDO(String, username, password)
             $this->_pdo = new PDO('mysql:host='.Config::get('mysql/host').';dbname='.Config::get('mysql/db'), Config::get('mysql/username') , Config::get('mysql/password'));
@@ -18,7 +18,7 @@ class DB {
         }
     }
 
-    // Following a singletion pattern
+    // Following a singleton pattern
     public static function getInstance(){
 
         if(!isset(self::$_instance)){
@@ -30,7 +30,9 @@ class DB {
 
     public function query($sql, $params = array()){
 
+        // pending
         $this->_error = false;
+
         if($this->_query = $this->_pdo->prepare($sql)){
             $x = 1;
             if(count($params)){
